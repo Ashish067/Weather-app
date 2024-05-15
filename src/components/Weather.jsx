@@ -22,7 +22,7 @@ const Weather = () => {
     if (city !== "") {
       fetchData();
     }
-  }, [city, apiKey]);
+  }, [city, `process.env.REACT_APP_API_KEY`]);
 
   const handleSearch = (e) => {
     e.preventDefault();
