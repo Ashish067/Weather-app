@@ -5,12 +5,12 @@ const Weather = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
-
+  const apiKey = process.env.REACT_APP_API_KEY;
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
         );
         setWeatherData(response.data);
         setError(null);
@@ -22,7 +22,7 @@ const Weather = () => {
     if (city !== "") {
       fetchData();
     }
-  }, [city, `process.env.REACT_APP_API_KEY`]);
+  }, [city, apiKey]);
 
   const handleSearch = (e) => {
     e.preventDefault();
