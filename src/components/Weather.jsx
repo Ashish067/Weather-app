@@ -5,7 +5,7 @@ const Weather = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.VITE_APPWRITE_API_KEY;
   useEffect(() => {
     const fetchData = async () => {
       try {
